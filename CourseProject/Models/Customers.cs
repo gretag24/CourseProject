@@ -18,22 +18,26 @@ namespace CourseProject.Models
 
         public Customer Authenticate(string username, string password)
         {
-            Customer c = customers.Where(o => o.Username == username).First();
-            if (c! = null)
-            {
-                if (c.Password == password)
-                {
-                    return c;
-                }
-                else
-                {
-                    return null;
-                }
+            var c = customers.Where(o => o.Username == username) && (o.Password == password));
 
+            if(c.Count() > 0)
+            {
+                return c.First();
             }
-            return null;
+            else
+            {
+                return null;
+            }
 
         }
+
+
        
     }
+
+
+
+
+
+
 }

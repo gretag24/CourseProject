@@ -151,7 +151,7 @@
             
             customers.customers.Add(newCustomer);
 
-            Console.WriteLine("Profile created!);
+            Console.WriteLine("Profile created!");
 
         }
                 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CourseProject.Hotel_Booking_system
 {
-    public class Customer
+    public class guest
     {
 
         private static int autoIncreament;

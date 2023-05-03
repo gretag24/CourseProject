@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace CourseProject.Hotel_Booking_system
 {
-    internal class reservations
+    public class Reservation
     {
+        private static int autoIncreament;
+        public int Id { get; set; }
+
+        public DateTime date { get; set; }
+
+
+        public Reservation()
+        {
+            autoIncreament++;
+            Id = autoIncreament;
+        }
     }
 }

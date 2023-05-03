@@ -8,11 +8,15 @@ namespace CourseProject.Hotel_Booking_system
 {
     public class Program
     {
-        private static guests guest;
-        private static List<reservations> reservations;
-        private static List<CguestReservations> guestsReservations;
-        private static guest authenticatedguest;
-    //Each of this field present a private access modifier in which they can only be accessed through the program class
+        private static Guest authenticatedGuest;
+        private static Guests guests;
+        private static List<Reservation> reservations;
+        private static List<guestReservations> guestsReservations;
+        private static List<guestReservations> guestReservations;
+
+
+
+        //Each of this field present a private access modifier in which they can only be accessed through the program class
 
         static void Main(string[] args)
         {
@@ -24,7 +28,7 @@ namespace CourseProject.Hotel_Booking_system
 
         static void Initialize()
         {
-            var g1 = new guest
+            var g1 = new Guest
             {
                 FirstName = "Sarah",
                 LastName = "Smith",
@@ -32,7 +36,7 @@ namespace CourseProject.Hotel_Booking_system
                 Password = "1234",
             };
 
-            var g2 = new guest
+            var g2 = new Guest
             {
                 FirstName = "Terence",
                 LastName = "Ow",
@@ -41,9 +45,9 @@ namespace CourseProject.Hotel_Booking_system
             };
             //This line above is just some random information on our new guest. Guest objects allows for user authentication or to create reservations for specific guests that come to our hotel
 
-            var r1 = new reservations();
-            var r2 = new reservations();
-            var r3 = new reservations();
+            var r1 = new Reservation();
+            var r2 = new Reservation();
+            var r3 = new Reservation();
 
             var gr1 = new guestReservations(g1, r1);
             var gr2 = new guestReservations(g1, r2);
@@ -51,14 +55,15 @@ namespace CourseProject.Hotel_Booking_system
             //With this line of code above me creates reservation and guestReservations as a object that help to determine manage reservations for specific guests and events or dates
 
 
-            guests = new guests();
+            guests = new Guests();
             guests.guests.Add(g1);
             guests.guests.Add(g2);
-
-            reservations = new List<reservations>();
-            reservations.Add(gr1);
-            reservations.Add(gr2);
-            reservations.Add(gr3);
+           
+            List<Reservation> reservations = new List<Reservation>();
+            reservations = new List<Reservation>();
+            reservations.Add(r1);
+            reservations.Add(r2);
+            reservations.Add(r3);
 
             guestReservations = new List<guestReservations>();
             guestReservations.Add(gr1);
@@ -72,7 +77,7 @@ namespace CourseProject.Hotel_Booking_system
 
         static void Menu()
         {
-            boolean done = false;
+            bool done = false;
 
             while (!done)
             {
@@ -91,7 +96,7 @@ namespace CourseProject.Hotel_Booking_system
                         SignUpMenu();
                         break;
                     case "4":
-                        GetCurrentReservationstMenu();
+                        GetCurrentReservationsMenu();
                         break;
                     case "c":
                         Console.Clear(); 
@@ -112,16 +117,16 @@ namespace CourseProject.Hotel_Booking_system
 
         static void LoginMenu()
         {
-            if (authenticatedguest == null)
+            if (authenticatedGuest == null)
             {
                 Console.WriteLine("Enter your username: ");
                 string username = Console.ReadLine();
                 Console.WriteLine("Enter your password: ");
                 string password = Console.ReadLine();
-                authenticatedguests = guests.Authenticate(username, password);
-                if (authenticatedguests != null)
+                authenticatedGuest = guests.Authenticate(username, password);
+                if (authenticatedGuest != null)
                 {
-                    Console.WriteLine($"Welcome {authenticatedguest.FirstName}");
+                    Console.WriteLine($"Welcome {authenticatedGuest.FirstName}");
                 }
                 else
                 {
@@ -131,7 +136,7 @@ namespace CourseProject.Hotel_Booking_system
             }
             else
             {
-                Console.WriteLine($"You are already logged in as {authenticatedguest.Username}");
+                Console.WriteLine($"You are already logged in as {authenticatedGuest.username}");
             }
             //These lines of code from Static void define the "LoginMenu' function in which it allows the users enter their username and password
             //this piece of code then uses authenticate() method to authenticate the user from their credntials 
@@ -140,7 +145,7 @@ namespace CourseProject.Hotel_Booking_system
 
         static void LogoutMenu()
         {
-            authenticatedguest = null;
+            authenticatedGuest = null;
             Console.WriteLine("Logged Out!");
         }
         //These line of code essentially allows the guest to logout of their account, in which the user will have to log back in using their credentials once again 
@@ -148,49 +153,49 @@ namespace CourseProject.Hotel_Booking_system
         static void SignUpMenu()
         {
             Console.Write("First Name: ");
-            string firstName = Console.ReaLine();
+            string firstName = Console.ReadLine();
             Console.Write("Last Name: ");
-            string lasttName = Console.ReaLine();
+            string lastName = Console.ReadLine();
             Console.Write("UserName: ");
-            string username = Console.ReaLine();
+            string username = Console.ReadLine();
             Console.Write("Password: ");
-            string password = Console.ReaLine();
+            string password = Console.ReadLine();
 
-            var newguest = new guest
+            var newGuest = new Guest
             {
-                firstName = firstName,
-                lasttName = lasttName,
-                username = username,
+                FirstName = firstName,
+                LastName = lastName,
+                Username = username,
                 Password = password
             };
 
-            guests.guests.Add(newguests);
+            guests.guests.Add(newGuest);
 
             Console.WriteLine("Profile created!");
 
         }
         //These lines of code are for the Signup menu. it prompts the user to input information and create a profile in when making a new account with our hotel like firstname, lastname, username, and password
 
-        static void GetCurrentReservationstMenu()
+        static void GetCurrentReservationsMenu()
         {
-            if (authenticatedguest == null)
+            if (authenticatedGuest == null)
             {
                 Console.WriteLine("You are not logged in.");
                 return;
             }
 
-            var ReservationsList = guestReservations.Where(o => o.guest.Username == authenticatedguest.Username);
+            var ReservationsList = guestReservations.Where(o => o.guest.Username == authenticatedGuest.Username);
 
 
-            if (reservationstList.Count() == 0)
+            if (ReservationsList.Count() == 0)
             {
                 Console.WriteLine("0 reservations found.");
             }
             else
             {
-                foreach (var reservations in ReservationstList)
+                foreach (var reservation in ReservationsList)
                 {
-                    Console.WriteLine(reservations.reservations.date);
+                    Console.WriteLine(reservation.reservation.date);
                 }
             }
 

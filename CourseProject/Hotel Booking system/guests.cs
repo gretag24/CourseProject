@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace CourseProject.Hotel_Booking_system
 {
-    public class Guest // names and creates a public class
+    public class Guests // names and creates a public class
     {
-
+        
         public List<Guest> guests { get; set; } // getter setter allows guest to be read and updated by other classes.
 
-        public Guest() // creates guest as a public varible 
+        public Guests() // creates guest as a public varible 
         {
-            guest = new List<Guest>(); // initializes a new instance of the List class and assigns it to the variable guest.
+            guests = new List<Guest>(); // initializes a new instance of the List class and assigns it to the variable guest.
         }
 
-        public guest Authenticate(string username, string password) // names a public class "Authenticate" that takes two string parameters username and password.
+        public Guest Authenticate(string username, string password) // names a public class "Authenticate" that takes two string parameters username and password.
         {
-            var g = guest.Where(o => o.Username == username) && (o => o.Password == password); // creates a new variable "g" that contains a query result obtained from guest
+            var g = guests.Where(o => (o.Username == username) && (o.Password == password)); // creates a new variable "g" that contains a query result obtained from guest
 
             if (g.Count() > 0) // states if "g" is greater than zero what to do.
             {

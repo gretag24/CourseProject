@@ -13,7 +13,7 @@ namespace CourseProject.Hotel_Booking_system
 
             public Reservation reservation { get; set; } // defines a public propert reservation that is the type reservation with a getter and setter method
 
-            public guestReservation(Guest c, Reservation a) // defines the constructor named getReservation
+            public guestReservations(Guest c, Reservation a) // defines the constructor named getReservation
             {
                 guest = c; //assignes value of the parameters to the guest properties class
                 reservation = a; //asssigns values of the parameter to the reservation properties class

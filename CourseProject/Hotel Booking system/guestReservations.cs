@@ -6,7 +6,20 @@ using System.Threading.Tasks;
 
 namespace CourseProject.Hotel_Booking_system
 {
-    internal class guestReservations
-    {
+        public class guestReservations
+        {
+
+            public Guest guest { get; set; }
+
+            public Reservation reservation { get; set; }
+
+            public guestReservation(Guest c, Reservation a)
+            {
+                guest = c;
+                reservation = a;
+            }
+        }
     }
-}
+
+
+

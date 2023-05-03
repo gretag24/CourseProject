@@ -8,7 +8,7 @@ namespace CourseProject.Hotel_Booking_system
 {
     public class Program
     {
-        private static guests guest;
+        private static guests guests;
         private static List<reservations> reservations;
         private static List<CguestReservations> guestsReservations;
         private static guest authenticatedguest;

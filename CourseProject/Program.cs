@@ -65,8 +65,8 @@
             while (!done)
                 ///instead of appointments written below, we can place it as reservations for our project
             {
-                Console.WriteLine("Options: Login 1 --- Logout 2 --- Sign Up: 3 --- Appointments: 4 --- Clear Screen: c --- Quit: q ---  ")
-                Console.WriteLine("Choice: ")
+                Console.WriteLine("Options: Login 1 --- Logout 2 --- Sign Up: 3 --- Appointments: 4 --- Clear Screen: c --- Quit: q ---  ");
+                Console.WriteLine("Choice: ");
                 string choice = Console.ReadLine();
                 switch (choice)
                 {
@@ -83,7 +83,7 @@
                         GetCurrentAppointmentMenu();
                         break;
                     case "c" :
-                        Console.Clear();..
+                        Console.Clear();
                         break;
                     case "q" :
                         done = true;
@@ -163,10 +163,10 @@
                 return;
             }
 
-            var appointmentList = customerAppointments.Where(o => o.customer.Username == authenticatedCustomer.Username)
+            var appointmentList = customerAppointments.Where(o => o.customer.Username == authenticatedCustomer.Username);
 
 
-            if(appointmentList.Count() == 0)
+            if (appointmentList.Count() == 0)
             {
                 Console.WriteLine("0 appointment found.");
             }

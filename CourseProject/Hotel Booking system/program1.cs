@@ -76,8 +76,8 @@ namespace CourseProject.Hotel_Booking_system
 
             while (!done)
             {
-                Console.WriteLine("Options: Login 1 --- Logout 2 --- Sign Up: 3 --- Reservations: 4 --- Clear Screen: c --- Quit: q ---  ")
-                Console.WriteLine("Choice: ")
+                Console.WriteLine("Options: Login 1 --- Logout 2 --- Sign Up: 3 --- Reservations: 4 --- Clear Screen: c --- Quit: q ---  ");
+                Console.WriteLine("Choice: ");
                 string choice = Console.ReadLine();
                 switch (choice)
                 {

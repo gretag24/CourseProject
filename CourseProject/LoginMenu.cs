@@ -9,4 +9,5 @@ namespace CourseProject
     internal class LoginMenu
     {
     }
+
 }

@@ -12,7 +12,7 @@ namespace CourseProject.Hotel_Booking_system
         private static List<reservations> reservations;
         private static List<CguestReservations> guestsReservations;
         private static guest authenticatedguest;
-
+    //Each of this field present a private access modifier in which they can only be accessed through the program class
 
         static void Main(string[] args)
         {
@@ -20,6 +20,7 @@ namespace CourseProject.Hotel_Booking_system
             Initialize();
             Menu();
         }
+        //This line of code above represents the main method, which asks to write initializing when asked to follow the method initialize
 
         static void Initialize()
         {
@@ -38,6 +39,8 @@ namespace CourseProject.Hotel_Booking_system
                 Username = "terence",
                 Password = "2345",
             };
+            //This line above is just some random information on our new guest. Guest objects allows for user authentication or to create reservations for specific guests that come to our hotel
+
             var r1 = new reservations();
             var r2 = new reservations();
             var r3 = new reservations();
@@ -45,6 +48,8 @@ namespace CourseProject.Hotel_Booking_system
             var gr1 = new guestReservations(g1, r1);
             var gr2 = new guestReservations(g1, r2);
             var gr3 = new guestReservations(g2, r3);
+            //With this line of code above me creates reservation and guestReservations as a object that help to determine manage reservations for specific guests and events or dates
+
 
             guests = new guests();
             guests.guests.Add(g1);
@@ -60,6 +65,7 @@ namespace CourseProject.Hotel_Booking_system
             guestReservations.Add(gr2);
             guestReservations.Add(gr3);
 
+            //This lines of code above me displaying objects including guests, reservations, and guestReservations help manage reservations and guest information, and may be updated as new reservations are made or guests are added or removed.
 
         }
 
@@ -88,7 +94,7 @@ namespace CourseProject.Hotel_Booking_system
                         GetCurrentReservationstMenu();
                         break;
                     case "c":
-                        Console.Clear(); ..
+                        Console.Clear(); 
                         break;
                     case "q":
                         done = true;
@@ -97,7 +103,8 @@ namespace CourseProject.Hotel_Booking_system
                         Console.WriteLine("Invalid command!");
                         break;
                 }
-
+                //These lines of code from Static void define the "Menu' function in which it allows the users select any of the options from login,logout,signup,reservations,clear screen,and quit
+                //this piece of code uses a while loop and a switch statement o allow the user to interact with our program application
             }
 
         }
@@ -126,6 +133,8 @@ namespace CourseProject.Hotel_Booking_system
             {
                 Console.WriteLine($"You are already logged in as {authenticatedguest.Username}");
             }
+            //These lines of code from Static void define the "LoginMenu' function in which it allows the users enter their username and password
+            //this piece of code then uses authenticate() method to authenticate the user from their credntials 
 
         }
 
@@ -134,6 +143,7 @@ namespace CourseProject.Hotel_Booking_system
             authenticatedguest = null;
             Console.WriteLine("Logged Out!");
         }
+        //These line of code essentially allows the guest to logout of their account, in which the user will have to log back in using their credentials once again 
 
         static void SignUpMenu()
         {
@@ -159,6 +169,7 @@ namespace CourseProject.Hotel_Booking_system
             Console.WriteLine("Profile created!");
 
         }
+        //These lines of code are for the Signup menu. it prompts the user to input information and create a profile in when making a new account with our hotel like firstname, lastname, username, and password
 
         static void GetCurrentReservationstMenu()
         {
@@ -184,6 +195,8 @@ namespace CourseProject.Hotel_Booking_system
             }
 
         }
+        //these lines of code allows users to select their reservations from the main menu
+        //if the reservation is stored in our database, it will display a lists of reservations made by the user once logged in and autheticated by the program.
 
     }
 

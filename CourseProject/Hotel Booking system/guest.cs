@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace CourseProject.Hotel_Booking_system
 {
-    public class guest
+    public class guest // defining the class as guest
     {
 
-        private static int autoIncreament;
-        public int Id { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        private static int autoIncreament; // declares private static integer variable called autoIncreament which is used to keep track of guest ID numbers
+        public int Id { get; set; } // allowing property to be read and updated by other classes. 
+        public string Username { get; set; } // getter setter allows username to be read and updated by other classes. 
+        public string Password { get; set; } // getter and setter allows the password to be read and updated by other classes. 
+        public string FirstName { get; set; } // getter and setter allows first name to be read and updated by other classes. 
+        public string LastName { get; set; } // getter and setter allows last name to be read and updated by other classes. 
 
-        public guest()
+        public guest() //defining constructor for guest class. 
         {
-            autoIncreament++;
-            Id = autoIncreament;
+            autoIncreament++; //incrementing the guest ID by one. 
+            Id = autoIncreament; // insuring each guest ID number will be unique
         }
 
     }
